@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #f4f4f6;
+
+    padding-top: 44px; /*为header留出空间*/
+    padding-bottom: 50px; /*为footer留出空间*/
+}
+
+.DS_header {
+    background: #2885ca;
+    line-height: 44px;
+    font-size: 18px;
+    text-align: center;
+    color: white;
+
+    /* 定位需要确定宽高，位置，加钉 */
+    position: fixed; /*固定定位*/
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.DS_second_section img {
+    width: 100%;
+}
+
+.DS_second_section img {
+    margin-bottom: -6px;
+}
+
+ul li span {
+    display: block;
+}
+
+footer {
+    width: 100%;
+    display: table;
+    background: black;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+footer a {
+    display: table-cell;
+    width: 20%;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    padding: 2px 0;
+}
+
+footer a img {
+    padding-top: 5px;
+    width: 22px;
+}
+
+footer a span {
+    display: block;
+    font-size: 12px;
+}

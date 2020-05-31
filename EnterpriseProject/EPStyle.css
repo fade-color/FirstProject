@@ -1,0 +1,58 @@
+.EP_2nd_section {
+    display: table;
+    width: 100%;
+}
+
+.EP_2nd_section a {
+    display: table-cell;
+    width: 33.3%;
+    text-decoration: none;
+    text-align: center;
+    line-height: 44px;
+    color: black;
+}
+
+.EP_3rd_section img {
+    width: 100%;
+}
+
+.EP_service_content {
+    text-align: center;
+    background: white;
+    padding: 4px 0;
+}
+
+.EP_entrepreneur_income {
+    margin-top: 10px;
+}
+
+.EP_income_condition {
+    padding: 10px 0;
+    margin-top: 5px;
+    background: white
+}
+
+.EP_2nd_section a span {
+    font-size: 16px;
+}
+
+.EP_2nd_section_a_checked {
+    background: white;
+}
+
+img {
+    width: 100%;
+}
+
+h4 {
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+}
+
+p {
+    font-size: 12px;
+    color: gray;
+    margin-left: 18px;
+    line-height: 1.6em;
+}

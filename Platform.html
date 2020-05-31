@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>张震</title>
+    <!-- 用来加载外部资源用的标签 -->
+    <!-- 相对路径/绝对路径 -->
+    <link rel="short icon" href="Resource/favicon.ico">
+
+    <!-- stylesheet用来加载外部样式表 -->
+    <link rel="stylesheet" href="ExternalStyle.css">
+
+
+    <style>
+        article {
+            margin: 20px;
+        }
+
+        h3 {
+            color: red;
+            font-size: 18px;
+            border-bottom: solid 1px #dddddd;
+            padding-bottom: 10px;
+        }
+
+        h4 {
+            font-size: 14px;
+        }
+
+        p {
+            font-size: 12px;
+            text-indent: 2em;
+            line-height: 2em;
+        }
+    </style>
+</head>
+<body>
+<!--第一部分-->
+<header class="DS_header">
+    <span>平台风采</span>
+</header>
+
+<!--第二部分-->
+<section class="DS_second_section">
+    <img src="Resource/banner4.png" alt="请检查你的网络！"/>
+</section>
+
+<!--第三部分-->
+<article>
+    <h3 id="title"></h3>
+    <h4 id="subTitle"></h4>
+    <p id="info"></p>
+</article>
+
+<footer>
+    <a href="DropletService.html"><img src="Resource/nav10.png" alt=""/><span>小滴服务</span></a >
+    <a href="EnterpriseProject/DiamondEntrepreneur.html"><img src="Resource/nav20.png" alt=""/><span>企业项目</span></a >
+    <a href="ServiceProcess.html"><img src="Resource/nav30.png" alt=""/><span>服务流程</span></a >
+    <a href=""><img src="Resource/nav41.png" alt=""/><span style="color: red">平台风采</span></a >
+    <a href="MyDroplet.html"><img src="Resource/nav50.png" alt=""/><span>我的小滴</span></a >
+</footer>
+<script src="static/jquery-3.5.1.min.js"></script>
+<script src="CommonMethod.js"></script>
+<script>
+    ajax(
+        'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus',
+        'get',
+        function (result) {
+            let obj = JSON.parse(result).data
+            document.getElementById('title').innerHTML = obj.title
+            document.getElementById('subTitle').innerHTML = obj.subTitle
+            document.getElementById('info').innerHTML = obj.info
+        }
+    )
+    // $.ajax({
+    //     url: 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus',
+    //     type: 'get',
+    //     success: function (result) {
+    //         let obj = JSON.parse(result).data
+    //         document.getElementById('title').innerHTML = obj.title
+    //         document.getElementById('subTitle').innerHTML = obj.subTitle
+    //         document.getElementById('info').innerHTML = obj.info
+    //     }
+    // })
+    // // 创建一个请求对象
+    // let xhr = new XMLHttpRequest();
+    //
+    // // 建立与服务端的连接
+    // xhr.open('get', 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus');
+    //
+    // // 设置请求头信息，告诉服务器让数据以表单的形式传递过去
+    // xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+    //
+    // // 向服务端发送请求
+    // xhr.send();
+    //
+    // // 接收服务端返回的数据
+    // xhr.onreadystatechange = function () {
+    //     // xhr.readyState === 4 代表数据请求完成
+    //     // xhr.status === 200 代表数据返回成功
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         let responseData = JSON.parse(xhr.responseText);
+    //         let obj = responseData.data;
+    //
+    //         let h3 = document.getElementById('title');
+    //         let h4 = document.getElementById('subTitle');
+    //         let p = document.getElementById('info')
+    //
+    //         h3.innerHTML = obj.title;
+    //         h4.innerHTML = obj.subTitle;
+    //         p.innerHTML = obj.info;
+    //     }
+    //
+    // }
+</script>
+</body>
+</html>

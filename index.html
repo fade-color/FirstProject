@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>张震</title>
+    <!-- 用来加载外部资源用的标签 -->
+    <!-- 相对路径/绝对路径 -->
+    <link rel="short icon" href="Resource/favicon.ico">
+
+    <!-- stylesheet用来加载外部样式表 -->
+    <link rel="stylesheet" href="ExternalStyle.css">
+
+    <script src="static/jquery-3.5.1.min.js"></script>
+
+    <style>
+        .L_second_div {
+            text-align: center;
+        }
+
+        .L_head_img {
+            margin-top: 50px;
+        }
+
+        .L_form_div {
+            width: 90%;
+            background: white;
+            margin: 30px auto;
+            border: solid 1px #cccccc;
+            border-radius: 5px;
+            height: 100px;
+        }
+
+        .L_account_div {
+            height: 50px;
+            border-bottom: 1px solid #cccccc;
+        }
+
+        .L_form_div label {
+            font-size: 18px;
+            padding-left: 15px;
+            line-height: 50px;
+            width: 30%;
+        }
+
+        input {
+            outline: medium; /*轮廓线：无*/
+            background: transparent;
+            border: 0;
+            font-size: 18px;
+            width: 70%;
+        }
+
+        .L_login_btn_div {
+            height: 50px;
+            background: #245ca1;
+            width: 90%;
+            border-radius: 10px;
+            margin: 10px auto;
+            text-align: center;
+        }
+
+        .L_login_btn_div input {
+            line-height: 50px;
+            width: inherit;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--第一部分-->
+<header class="DS_header">
+    <span>登录</span>
+</header>
+
+<!--第二部分-->
+<div class="L_second_div">
+    <img class="L_head_img" src="Resource/head.png" alt="">
+
+</div>
+
+<!--第三部分-->
+<form action="">
+    <div class="L_form_div">
+        <div class="L_account_div">
+            <label for="L_account">用户名：</label>
+            <input id="L_account" type="text" name="account" value="admin">
+        </div>
+        <div>
+            <label for="L_pwd">密码：</label>
+            <input id="L_pwd" type="password" name="password" value="admin">
+        </div>
+    </div>
+    <div class="L_login_btn_div">
+        <input id="L_btn" type="button" value="登录">
+    </div>
+</form>
+
+<script src="CommonMethod.js"></script>
+<script>
+    let btn = document.querySelector("#L_btn")
+    btn.onclick = function () {
+        // 数据进行编码
+        let userName = encodeURIComponent(document.querySelector("#L_account").value);
+        let pwd = encodeURIComponent(document.querySelector("#L_pwd").value);
+
+        ajax(
+            'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login',
+            'username=' + userName + '&pwd=' + pwd,
+            'post',
+            function (result) {
+                let str = JSON.parse(result).data;
+                if (str === '登录成功') {
+                location.href = "DropletService.html";
+                } else {
+                    alert(responseData.data);
+                }
+            }
+        )
+
+        // $.ajax({
+        //     url: 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login',
+        //     data: 'username=' + userName + '&pwd=' + pwd,
+        //     type: 'post',
+        //     success: function (result) {
+        //         let str = JSON.parse(result).data;
+        //         if (str === '登录成功') {
+        //             location.href = "DropletService.html";
+        //         } else {
+        //             alert(responseData.data);
+        //         }
+        //     }
+        // })
+
+        // 创建一个请求对象
+        let xhr = new XMLHttpRequest();
+
+        // 建立与服务端的连接
+        xhr.open('post', 'https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login');
+
+        // 设置请求头信息，告诉服务器让数据以表单的形式传递过去
+         xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+
+        // 向服务端发送请求
+        let par = 'username=' + userName + '&pwd=' + pwd;
+        xhr.send(par)
+
+        // 接收服务端返回的数据
+        xhr.onreadystatechange = function () {
+            // xhr.readyState === 4 代表数据请求完成
+            // xhr.status === 200 代表数据返回成功
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                let responseData = JSON.parse(xhr.responseText);
+                let str = responseData.data;
+
+                if (str === '登录成功') {
+                    location.href = "DropletService.html";
+                } else {
+                    alert(responseData.data);
+                }
+
+            }
+
+        }
+    }
+</script>
+
+</body>
+</html>

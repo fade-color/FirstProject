@@ -1,0 +1,20 @@
+POST https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "pwd": "admin"
+}
+
+###
+GET https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/aboutus
+Accept: application/json
+
+###
+POST https://mockapi.eolinker.com/2ZhGVxjacb39010e6753bd9c02ee803e6e3bfeab6e8007c/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "pwd": "admin"
+}
